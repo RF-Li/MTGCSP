@@ -8,7 +8,7 @@ multiscale_x=cell(N,bandcount);
 data_y=dataset_information.Classlabel;
 i=1;
 
-%������ȡ
+
     for j=1:size(dataset_information.EVENT.POS,1)
         if dataset_information.EVENT.TYP(j)==768
             temp=dataset_signal(dataset_information.EVENT.POS(j)+751:dataset_information.EVENT.POS(j)+1750,1:3)';
@@ -20,16 +20,16 @@ i=1;
     end
 
 %decenter
-fc = 250;          %����Ƶ��250Hz
-point = 1000;           %��������500
+fc = 250; 
+point = 1000; 
 n = 0:point-1;          
 f = n*fc/point; 
 band_number=1;
 for band=2:18       
 %��һ���˲�
 
-Wn = [band*2*2 (band*2+4)*2]/fc;%����ͨ��Ϊ0.5-50Hz
-[k,l] = butter(2,Wn);%4��IIR�˲���
+Wn = [band*2*2 (band*2+4)*2]/fc;
+[k,l] = butter(2,Wn);
 %decenter
 
 for i=1:N
